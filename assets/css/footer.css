@@ -1,0 +1,169 @@
+:root{
+    --color-primary: #ffb606;
+    --color-bg: #0C0A09;
+    --color-text: #ffffff;
+    --color-muted: #777777;
+    /* Footer overlay control: rgba(0,0,0,var) where var is alpha */
+    --footer-overlay-top: 0.72;
+    --footer-overlay-bottom: 0.45;
+}
+
+.pie-pagina{
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    font-size: 0.95rem;
+}
+.pie-pagina .container{
+    display:flex;
+    gap:1.5rem;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.marca-footer{ display:flex; gap:0.75rem; align-items:center }
+.marca-footer img{ max-height:44px }
+.marca-footer .brand-title{ font-weight:700 }
+
+.columna-footer{ min-width:180px }
+.enlaces-footer{ list-style:none; padding:0; margin:0 }
+.enlaces-footer li{ margin:0.25rem 0 }
+.enlaces-footer a{ color:var(--color-text); text-decoration:none }
+.enlaces-footer a:hover{ color:var(--color-primary) }
+
+.contacto-footer{ color:var(--color-muted) }
+
+.pie-inferior{
+    border-top:1px solid rgba(220, 217, 217, 0.901);
+    margin-top:1.25rem;
+    padding-top:1rem;
+    text-align:center;
+    color:var(--color-text); /* texto totalmente legible */
+    opacity:1 !important;
+    font-size:0.9rem;
+}
+
+/* Responsive: columnas apilan en móvil */
+@media (max-width:720px){
+    .site-footer .container{ flex-direction:column; align-items:flex-start }
+    .footer-brand{ margin-bottom:0.75rem }
+}
+
+/* Estilo más moderno: fondo con degradado suave y lacta de newsletter */
+.pie-pagina{
+    /* Fondo con imagen y overlay (estilo maido.pe) */
+    position:relative; /* para el overlay pseudo-element */
+    background-color: var(--color-bg);
+    background-image: url('/miskidesiree/assets/images/banner-background-1.png');
+    background-size: cover;
+    background-position: center center;
+    padding:3.5rem 1rem;
+    overflow: hidden;
+    background-color: black;
+    opacity: 98%;
+}
+
+/* Capa oscura encima de la imagen para mejorar legibilidad del texto */
+.pie-pagina::before{
+    content: "";
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    /* Degradado oscuro: más oscuro abajo para mejorar legibilidad sin perder textura */
+    background: linear-gradient(to top, rgba(0,0,0,var(--footer-overlay-top)), rgba(0,0,0,var(--footer-overlay-bottom)));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Asegurar que el contenido del footer esté por encima del overlay */
+.pie-pagina .container,
+.pie-pagina .pie-inner{ position: relative; z-index: 1; }
+
+.boletin-footer{
+    background: rgba(255,255,255,0.03);
+    padding:0.75rem;
+    border-radius:10px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+}
+.formulario-boletin{ display:flex; gap:0.5rem; align-items:center }
+.formulario-boletin input[type="email"]{
+    background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.6rem 0.75rem; border-radius:8px; color:var(--color-text); flex:1;
+}
+.formulario-boletin button{
+    background:var(--color-primary); color:var(--color-bg); border:0; padding:0.55rem 0.9rem; border-radius:8px; font-weight:700;
+}
+
+.redes{ display:flex; gap:0.6rem; align-items:center }
+
+/* Modern social icons: circular, subtle border, gradient hover and accessible focus */
+.redes a{
+    display:inline-grid;
+    place-items:center;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.03);
+    color: var(--color-text);
+    text-decoration:none;
+    font-weight:700;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+.redes a svg{ width:18px; height:18px; fill:currentColor; }
+.redes a:hover,
+.redes a:focus{
+    background: linear-gradient(90deg,var(--color-primary), #ffcf59);
+    color: var(--color-bg);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    outline: none;
+}
+.redes a:focus{ box-shadow: 0 0 0 4px rgba(255,182,6,0.12); }
+
+/* Label (h4) styling for the small column to match modern look */
+.columna-footer h4{ margin:0 0 0.6rem; font-size:1.05rem; color:var(--color-text); font-weight:700; }
+
+/* Estructura interior para aspecto tipo maido */
+.pie-pagina .pie-inner{
+    max-width:1200px; margin:0 auto; display:flex; gap:2rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+}
+.izquierda-footer{
+    flex:1 1 420px; color:var(--color-text);
+}
+.derecha-footer{
+    display:flex; gap:1.5rem; flex:1 1 420px; justify-content:flex-end; flex-wrap:wrap;
+}
+.derecha-footer .columna-footer{ min-width:160px }
+.izquierda-footer h3{ font-size:1.5rem; margin:0 0 0.5rem; font-weight:700 }
+.pie-pagina .izquierda-footer h3{
+    color: var(--color-primary);
+    font-size:1.8rem;
+    font-weight:800;
+    letter-spacing:0.6px;
+    margin-bottom:0.5rem;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    position: relative;
+}
+.pie-pagina .izquierda-footer h3::after{
+    content: "";
+    display:block;
+    width:56px;
+    height:4px;
+    background: linear-gradient(90deg,var(--color-primary), #ffcf59);
+    border-radius:3px;
+    margin-top:8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.izquierda-footer p{ color:var(--color-muted); margin:0 0 1rem }
+
+/* Newsletter grande en footer-left */
+.formulario-boletin{ gap:0.5rem }
+.formulario-boletin input[type="email"]{ min-width:220px }
+
+@media (max-width:900px){
+    .site-footer{ padding:2rem 1rem }
+    .site-footer .footer-inner{ flex-direction:column; align-items:flex-start }
+    .footer-right{ justify-content:flex-start }
+}
+
